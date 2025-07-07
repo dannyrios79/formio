@@ -114,7 +114,7 @@ module.exports = function(formio, items, done) {
             if (!input) {
               return 'Email is not specified';
             }
-            const pattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            const pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             if (!pattern.test(input)) {
               return 'Must be a valid email';
             }
@@ -137,7 +137,12 @@ module.exports = function(formio, items, done) {
         }
       ]).then(function(result) {
         util.log('Encrypting password');
-        formio.encrypt(result.password, async function(err, hash) {
+        
+        // Use environment variables if available, otherwise use prompt results
+        const email = process.env.ROOT_EMAIL || result.email;
+        const password = process.env.ROOT_PASSWORD || result.password;
+        
+        formio.encrypt(password, async function(err, hash) {
           if (err) {
             return done(err);
           }
@@ -148,7 +153,7 @@ module.exports = function(formio, items, done) {
             await formio.resources.submission.model.create({
               form: project.resources.admin._id,
               data: {
-                email: result.email,
+                email: email,
                 password: hash
               },
               roles: [
