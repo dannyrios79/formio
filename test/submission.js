@@ -7,7 +7,6 @@ var Chance = require('chance');
 var chance = new Chance();
 var _ = require('lodash');
 var docker = process.env.DOCKER;
-const nock = require('nock');
 
 module.exports = function(app, template, hook) {
   var Helper = require('./helper')(app);
@@ -27,12 +26,6 @@ module.exports = function(app, template, hook) {
       });
     });
   }
-    nock('https://random.com')
-    .get('/')
-    .reply(200, [
-      {id: 1, name: 'Alice'},
-      {id: 2, name: 'Bob'}
-    ]);
 
   describe('Form Submissions', function() {
     it('Sets up a default project', function(done) {
@@ -54,23 +47,6 @@ module.exports = function(app, template, hook) {
 
             var submission = helper.getLastSubmission();
             assert.deepEqual(test.submission, submission.data);
-            done();
-          });
-      });
-
-      it('Custom conditional components that rely on fetched data should work correctly', function(done) {
-        const test = require('./fixtures/forms/CustomConditionalcomponents.js');
-        helper
-          .form('test', test.components)
-          .submission({data:test.submission})
-          .execute(function(err) {
-            if (err) {
-              return done(err);
-            }
-            const submission = helper.getLastSubmission();
-            assert.strictEqual(Object.keys(submission.data).length, 2);
-            assert('aaPocCheckboxStage' in submission.data);
-            assert('stageData' in submission.data);
             done();
           });
       });
@@ -5468,6 +5444,154 @@ module.exports = function(app, template, hook) {
             e: 'Five',
             f: 'Six'
           });
+          done();
+        });
+    });
+
+    it('Create child Wizard', (done) => {
+      helper
+        .form('childWizard', [
+          {
+            type: 'textfield',
+            label: 'C',
+            key: 'c',
+            validate: {
+              required: true
+            }
+          },
+          {
+            type: 'textfield',
+            label: 'D',
+            key: 'd'
+          }
+        ])
+        .execute(done);
+    });
+
+    it('Create parent Wizard', (done) => {
+      helper
+        .form('parentWizard', {
+          title: 'Parent Wizard',
+          name: 'parentWizard',
+          path: 'parentwizard',
+          type: 'form',
+          display: 'wizard',
+          components: [
+            {
+              label: 'Parent Wizard Page 1',
+              title: 'Parent Wizard Page 1',
+              breadcrumbClickable: true,
+              buttonSettings: {
+                previous: true,
+                cancel: true,
+                next: true,
+              },
+              navigateOnEnter: false,
+              saveOnEnter: false,
+              scrollToTop: false,
+              collapsible: false,
+              key: 'page1',
+              type: 'panel',
+              input: false,
+              tableView: false,
+              components: [
+                {
+                  label: 'Checkbox to show child wizard',
+                  tableView: false,
+                  validateWhenHidden: false,
+                  key: 'checkboxToShowChildWizard',
+                  type: 'checkbox',
+                  input: true,
+                  defaultValue: false,
+                },
+              ],
+            }, {
+              label: 'Parent Wizard Page 2, Child wizard page',
+              title: 'Parent Wizard Page 2, Child wizard page',
+              breadcrumbClickable: true,
+              buttonSettings: {
+                previous: true,
+                cancel: true,
+                next: true,
+              },
+              navigateOnEnter: false,
+              saveOnEnter: false,
+              scrollToTop: false,
+              collapsible: false,
+              key: 'page2',
+              conditional: {
+                show: true,
+                conjunction: 'all',
+                conditions: [
+                  {
+                    component: 'checkboxToShowChildWizard',
+                    operator: 'isEqual',
+                    value: true,
+                  },
+                ],
+              },
+              type: 'panel',
+              input: false,
+              tableView: false,
+              components: [
+                {
+                  label: 'Form',
+                  tableView: true,
+                  form: helper.template.forms.childWizard._id,
+                  useOriginalRevision: false,
+                  key: 'form',
+                  type: 'form',
+                  input: true,
+                },
+              ],
+            }, {
+              label: 'Parent Wizard Page 3',
+              title: 'Parent Wizard Page 3',
+              breadcrumbClickable: true,
+              buttonSettings: {
+                previous: true,
+                cancel: true,
+                next: true,
+              },
+              navigateOnEnter: false,
+              saveOnEnter: false,
+              scrollToTop: false,
+              collapsible: false,
+              key: 'page3',
+              type: 'panel',
+              input: false,
+              tableView: false,
+              components: [
+                {
+                  label: 'Text Field',
+                  applyMaskOn: 'change',
+                  tableView: true,
+                  validateWhenHidden: false,
+                  key: 'textField',
+                  type: 'textfield',
+                  input: true,
+                },
+              ],
+            },
+          ],
+        })
+        .execute(done);
+    });
+
+    it('Should allow the submission to go through if the subform is a conditionally hidden Wizard', (done) => {
+      helper
+        .submission('parentWizard', {
+          checkboxToShowChildWizard: false,
+          textField: '',
+        })
+        .execute((err) => {
+          if (err) {
+            return done(err);
+          }
+
+          const submission = helper.lastSubmission;
+          assert.equal(submission.data.checkboxToShowChildWizard, false);
+          assert(!submission.data.hasOwnProperty('form'), 'The nexted wizard should not be present.');
           done();
         });
     });

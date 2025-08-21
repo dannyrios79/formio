@@ -273,16 +273,18 @@ module.exports = (router, resourceName, resourceId) => {
         handler,
         action,
         path,
+        fullPath,
       }) => {
         if (component) {
           const componentPath = util.valuePath(path, component.key);
+          const componentFullPath = util.valuePath(fullPath, component.key);
 
           // Remove not persistent data
           if (
             data &&
             component.hasOwnProperty('persistent') &&
             (!component.persistent || component.persistent === 'client-only')&&
-            !['columns', 'fieldset', 'panel', 'table', 'tabs','datasource'].includes(component.type)
+            !['columns', 'fieldset', 'panel', 'table', 'tabs'].includes(component.type)
           ) {
             util.deleteProp(component.key)(data);
           }
@@ -299,6 +301,7 @@ module.exports = (router, resourceName, resourceId) => {
             {
               validation,
               path: componentPath,
+              fullPath: componentFullPath,
               req,
               res,
             },
