@@ -1,0 +1,75 @@
+/* FormBuilder Icon Fixes - Single Icon Display */
+
+/* Import Bootstrap Icons font */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
+
+/* HIDE Font Awesome icons completely */
+.component-settings-button i.fa {
+  display: none !important;
+}
+
+/* ONLY show Bootstrap Icons */
+.component-settings-button i.bi {
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+/* Bootstrap Icons mapping */
+i.bi-trash::before {
+  content: "5de" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+i.bi-back::before {
+  content: "32a" !important; /* copy icon */
+  font-family: "bootstrap-icons" !important;
+}
+
+i.bi-save::before {
+  content: "552" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+i.bi-wrench::before {
+  content: "632" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+i.bi-arrows-move::before {
+  content: "1d0" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+i.bi-gear::before {
+  content: "3e5" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+/* Fix button alignment and spacing */
+.component-settings-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px 8px !important;
+  margin: 0 2px !important;
+  vertical-align: middle !important;
+  min-width: 28px !important;
+  height: 24px !important;
+}
+
+/* Ensure only one icon shows per button */
+.component-settings-button > i:first-child {
+  display: inline-block !important;
+}
+
+.component-settings-button > i:not(:first-child) {
+  display: none !important;
+}

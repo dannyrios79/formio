@@ -1,0 +1,772 @@
+/* Form Builder Specific Styles */
+
+/* Main Form Builder Container */
+.form-builder-container {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.form-builder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-title-input {
+  min-width: 250px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.form-builder-body {
+  margin-top: 20px;
+}
+
+/* FormIO Builder Wrapper - Simple and Clean */
+.formio-builder-wrapper {
+  min-height: 600px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: white;
+  overflow: visible;
+}
+
+/* Form Preview Container */
+.form-preview-container {
+  padding: 20px;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+.preview-wrapper {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Ensure proper layout for Form.io Builder */
+.formio-builder {
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+}
+
+/* ========================================
+   FORM.IO COMPONENT SIDEBAR STYLES
+   Make it look like the official Form.io builder
+   ======================================== */
+
+/* Sidebar container */
+.builder-sidebar,
+.formio-builder .builder-sidebar,
+.formio-builder-panel {
+  background: #f7f7f7 !important;
+  border-right: 1px solid #ddd !important;
+  padding: 0 !important;
+}
+
+/* Search input in sidebar */
+.builder-sidebar_search {
+  margin: 10px !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+}
+
+/*/* Component group headers (Basic, Advanced, Layout, Data) */
+.form-builder-group-header,
+.builder-group-button,
+.formio-builder .accordion-button,
+.formio-builder .btn-group-vertical > button,
+.builder-sidebar button[data-toggle="collapse"],
+.builder-sidebar [role="button"] {
+  width: 100% !important;
+  padding: 10px 15px !important;
+  background: #f0f0f0 !important;
+  border: none !important;
+  border-bottom: 1px solid #ddd !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: #333 !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+  display: block !important;
+}
+
+.form-builder-group-header:hover,
+.builder-group-button:hover {
+  background: #e8e8e8 !important;
+}
+
+/* Active/expanded group */
+.builder-group-button[aria-expanded="true"] {
+  background: #e0e0e0 !important;
+  color: #2c3e50 !important;
+}
+
+/* Component buttons container */
+.builder-sidebar .card-body,
+.builder-sidebar .no-drop,
+#group-container-basic,
+#group-container-advanced,
+#group-container-layout,
+#group-container-data {
+  padding: 10px !important;
+  background: white !important;
+}
+
+/* ========================================
+   COMPONENT BUTTONS - FORM.IO STYLE
+   Beautiful blue gradient buttons
+   ======================================== */
+
+.formcomponent,
+.builder-sidebar .btn-outline-primary,
+span[data-type][data-key],
+.builder-sidebar .formio-builder-component,
+.builder-sidebar [draggable="true"] {
+  display: inline-block !important;
+  align-items: center !important;
+  width: calc(100% - 10px) !important;
+  margin: 5px !important;
+  padding: 8px 10px !important;
+  background: linear-gradient(180deg, #4A90E2 0%, #357ABD 100%) !important;
+  border: 1px solid #2968a3 !important;
+  color: white !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  cursor: move !important;
+  transition: all 0.2s ease !important;
+  text-align: left !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+  user-select: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Hover effect */
+.formcomponent:hover,
+.builder-sidebar .btn-outline-primary:hover,
+span[data-type][data-key]:hover {
+  background: linear-gradient(180deg, #5A9FE7 0%, #4287C5 100%) !important;
+  border-color: #2968a3 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Active/dragging state */
+.formcomponent:active,
+.builder-sidebar .btn-outline-primary:active,
+span[data-type][data-key]:active {
+  background: linear-gradient(180deg, #357ABD 0%, #2968a3 100%) !important;
+  transform: translateY(0) !important;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+/* Component icons */
+.formcomponent i,
+.builder-sidebar .btn-outline-primary i,
+span[data-type][data-key] i {
+  margin-right: 6px !important;
+  font-size: 14px !important;
+  color: white !important;
+  opacity: 0.9 !important;
+  min-width: 16px !important;
+  text-align: center !important;
+}
+
+/* Fix Font Awesome icons to display properly */
+.formcomponent i::before,
+.builder-sidebar i::before {
+  font-family: "Font Awesome 5 Free", "FontAwesome" !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
+}
+
+/* Specific component icon mappings */
+.fa-terminal::before { content: "\f120" !important; }
+.fa-font::before { content: "\f031" !important; }
+.fa-hashtag::before { content: "\f292" !important; }
+.fa-asterisk::before { content: "\f069" !important; }
+.fa-check-square::before { content: "\f14a" !important; }
+.fa-plus-square::before { content: "\f0fe" !important; }
+.fa-th-list::before { content: "\f00b" !important; }
+.fa-dot-circle-o::before, .fa-dot-circle::before { content: "\f192" !important; }
+.fa-stop::before { content: "\f04d" !important; }
+.fa-envelope::before { content: "\f0e0" !important; }
+.fa-phone-square::before { content: "\f098" !important; }
+.fa-calendar::before { content: "\f073" !important; }
+.fa-clock-o::before, .fa-clock::before { content: "\f017" !important; }
+.fa-usd::before, .fa-dollar-sign::before { content: "\f155" !important; }
+.fa-pencil::before, .fa-pencil-alt::before { content: "\f303" !important; }
+.fa-file::before { content: "\f15b" !important; }
+.fa-link::before { content: "\f0c1" !important; }
+.fa-list-alt::before { content: "\f022" !important; }
+.fa-wpforms::before { content: "\f298" !important; }
+.fa-indent::before { content: "\f03c" !important; }
+.fa-columns::before { content: "\f0db" !important; }
+.fa-table::before { content: "\f0ce" !important; }
+.fa-folder-open::before { content: "\f07c" !important; }
+.fa-code::before { content: "\f121" !important; }
+.fa-paragraph::before { content: "\f1dd" !important; }
+.fa-square-o::before, .fa-square::before { content: "\f0c8" !important; }
+
+/* Special styles for some components */
+span[data-type="email"] i::before { content: "\f0e0" !important; }
+span[data-type="phoneNumber"] i::before { content: "\f095" !important; }
+span[data-type="address"] i::before { content: "\f015" !important; }
+span[data-type="datetime"] i::before { content: "\f073" !important; }
+span[data-type="day"] i::before { content: "\f783" !important; }
+span[data-type="time"] i::before { content: "\f017" !important; }
+span[data-type="currency"] i::before { content: "\f155" !important; }
+span[data-type="signature"] i::before { content: "\f304" !important; }
+span[data-type="file"] i::before { content: "\f15b" !important; }
+span[data-type="url"] i::before { content: "\f0c1" !important; }
+
+/* Layout components special styling */
+span[data-type="panel"],
+span[data-type="well"],
+span[data-type="columns"],
+span[data-type="fieldset"],
+span[data-type="tabs"],
+span[data-type="table"] {
+  background: linear-gradient(180deg, #6C757D 0%, #545B62 100%) !important;
+  border-color: #454b52 !important;
+}
+
+span[data-type="panel"]:hover,
+span[data-type="well"]:hover,
+span[data-type="columns"]:hover,
+span[data-type="fieldset"]:hover,
+span[data-type="tabs"]:hover,
+span[data-type="table"]:hover {
+  background: linear-gradient(180deg, #7C858D 0%, #646B72 100%) !important;
+}
+
+/* Data components special styling */
+span[data-type="datagrid"],
+span[data-type="editgrid"],
+span[data-type="container"],
+span[data-type="hidden"] {
+  background: linear-gradient(180deg, #28A745 0%, #218838 100%) !important;
+  border-color: #1e7e34 !important;
+}
+
+span[data-type="datagrid"]:hover,
+span[data-type="editgrid"]:hover,
+span[data-type="container"]:hover,
+span[data-type="hidden"]:hover {
+  background: linear-gradient(180deg, #38B755 0%, #319848 100%) !important;
+}
+
+/* Form.io build area */
+.formio-builder-form {
+  background: white;
+  padding: 20px;
+  min-height: 600px;
+}
+
+/* Drag and drop area styling */
+.formio-builder-form .formio-component-form,
+.formio-builder .formio-component-form > div,
+.formio-builder .webform-submission,
+.formio-builder .formio-form {
+  padding-top: 30px !important;
+}
+
+/* Form.io empty state message styling */
+.formio-builder .formio-component.formio-component-form {
+  margin-top: 20px;
+}
+
+/* Ensure drag and drop works properly */
+.formio-builder-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+/*/* MODAL AND DIALOG FIXES */
+.modal,
+.formio-dialog {
+  z-index: 10050 !important;
+}
+
+.modal-backdrop,
+.formio-dialog-overlay {
+  pointer-events: auto !important;
+  z-index: 9998 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.formio-dialog-overlay {
+  pointer-events: auto !important;
+  z-index: 9998 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.formio-dialog-content {
+  pointer-events: all !important;
+  z-index: 9999 !important;
+  position: relative !important;
+  background-color: white !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.formio-dialog-content .btn,
+.formio-dialog-content button {
+  pointer-events: all !important;
+  position: relative !important;
+  z-index: 10000 !important;
+}
+
+/* Component action buttons on placed components - with icons */
+.formio-component-remove,
+.formio-component-edit,
+.formio-component-copy,
+.formio-component-paste,
+.formio-component-move {
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  border-radius: 3px !important;
+  margin: 0 2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Add icons to the action buttons */
+.formio-component-remove::before {
+  content: "\f1f8" !important; /* trash icon */
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+.formio-component-edit::before {
+  content: "\f044" !important; /* edit icon */
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+.formio-component-copy::before {
+  content: "\f0c5" !important; /* copy icon */
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+.formio-component-paste::before {
+  content: "\f0ea" !important; /* paste icon */
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+.formio-component-move::before {
+  content: "\f0b2" !important; /* arrows icon */
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+/* Button colors */
+.formio-component-remove {
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+
+.formio-component-remove:hover {
+  background: #c82333 !important;
+  border-color: #bd2130 !important;
+}
+
+.formio-component-edit {
+  background: #007bff !important;
+  border-color: #007bff !important;
+  color: white !important;
+}
+
+.formio-component-edit:hover {
+  background: #0069d9 !important;
+  border-color: #0062cc !important;
+}
+
+.formio-component-copy {
+  background: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+}
+
+.formio-component-copy:hover {
+  background: #218838 !important;
+  border-color: #1e7e34 !important;
+}
+
+.formio-component-paste {
+  background: #ffc107 !important;
+  border-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.formio-component-paste:hover {
+  background: #e0a800 !important;
+  border-color: #d39e00 !important;
+}
+
+.formio-component-move {
+  background: #6c757d !important;
+  border-color: #6c757d !important;
+  color: white !important;
+  cursor: move !important;
+}
+
+.formio-component-move:hover {
+  background: #5a6268 !important;
+  border-color: #545b62 !important;
+}
+
+/* Mini button group styling */
+.formio-component-actions,
+.formio-component-edit-wrapper {
+  display: inline-flex !important;
+  gap: 2px !important;
+  padding: 2px !important;
+  background: rgba(255,255,255,0.9) !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 4px !important;
+}
+
+/* Ensure the buttons are visible */
+.formio-component:hover .formio-component-actions,
+.formio-component:hover .formio-component-edit-wrapper {
+  opacity: 1 !important;
+}
+
+/* Alternative icon approach using data-attributes */
+.btn[title="Remove"]::before,
+.btn[title="Delete"]::before,
+button[ref*="removeComponent"]::before {
+  content: "\f1f8" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+.btn[title="Edit"]::before,
+button[ref*="editComponent"]::before {
+  content: "\f044" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+.btn[title="Copy"]::before,
+button[ref*="copyComponent"]::before {
+  content: "\f0c5" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+/* Wizard specific styles */
+.formio-wizard-nav .nav-link {
+  padding: 10px 20px !important;
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  color: #495057 !important;
+  margin: 0 5px !important;
+  border-radius: 4px 4px 0 0 !important;
+}
+
+.formio-wizard-nav .nav-link.active {
+  background: white !important;
+  border-bottom: none !important;
+  color: #007bff !important;
+  font-weight: 600 !important;
+}
+
+/* Responsive grid for components */
+@media (max-width: 768px) {
+  .formcomponent,
+  .builder-sidebar .btn-outline-primary,
+  span[data-type][data-key] {
+    width: 100% !important;
+    margin: 5px 0 !important;
+  }
+}
+
+/* Dragging state */
+.formio-drag-over {
+  background: #e3f2fd !important;
+  border: 2px dashed #2196f3 !important;
+  min-height: 60px !important;
+}
+
+/* Component hover tooltip */
+.formcomponent::after {
+  content: "Drag to form";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.formcomponent:hover::after {
+  opacity: 1;
+}
+
+/*/* Fix Bootstrap Icons as fallback */
+.bi::before {
+  display: inline-block !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+  vertical-align: -0.125em !important;
+}
+
+/* ========================================
+   ACCORDION FIX FOR FORMIO BUILDER
+   ======================================== */
+
+/* Make accordion headers clickable */
+.formio-builder .formbuilder-group-header,
+.formio-builder button[data-bs-toggle="collapse"],
+.formio-builder [data-toggle="collapse"],
+.formio-builder .accordion-header,
+.builder-sidebar .group-button {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+/* Ensure accordion panels are properly styled */
+.formio-builder .collapse,
+.formio-builder .accordion-collapse {
+  transition: height 0.35s ease !important;
+}
+
+.formio-builder .collapse.show,
+.formio-builder .accordion-collapse.show,
+.builder-sidebar .collapse.show {
+  display: block !important;
+}
+
+/* Force accordion functionality */
+.builder-sidebar [aria-expanded="false"] + .collapse,
+.builder-sidebar [aria-expanded="false"] + div {
+  display: none !important;
+}
+
+.builder-sidebar [aria-expanded="true"] + .collapse,
+.builder-sidebar [aria-expanded="true"] + div {
+  display: block !important;
+}
+
+/* ========================================
+   ICON FIXES FOR COMPONENT ACTION BUTTONS
+   ======================================== */
+
+/* Font Awesome 4 icons (what Form.io actually uses) */
+.fa-remove::before,
+.fa-trash::before {
+  content: "1f8" !important;
+  font-family: "FontAwesome", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+}
+
+.fa-copy::before {
+  content: "0c5" !important;
+  font-family: "FontAwesome", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+}
+
+.fa-save::before,
+.fa-paste::before {
+  content: "0c7" !important;
+  font-family: "FontAwesome", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+}
+
+.fa-wrench::before {
+  content: "0ad" !important;
+  font-family: "FontAwesome", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+}
+
+.fa-arrows::before,
+.fa-arrows-move::before {
+  content: "047" !important;
+  font-family: "FontAwesome", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+}
+
+.fa-cog::before,
+.fa-gear::before {
+  content: "013" !important;
+  font-family: "FontAwesome", "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+}
+
+/* Bootstrap Icons fallback (if FA doesn't work) */
+.bi-trash::before {
+  content: "5de" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+.bi-back::before,
+.bi-clipboard::before {
+  content: "328" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+.bi-save::before {
+  content: "552" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+.bi-wrench::before {
+  content: "632" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+.bi-arrows-move::before {
+  content: "1e0" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+.bi-gear::before {
+  content: "3e5" !important;
+  font-family: "bootstrap-icons" !important;
+}
+
+/* Ensure Font Awesome icons display properly */
+.component-settings-button i.fa {
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Style the component action buttons */
+.component-settings-button {
+  padding: 2px 6px !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  border-radius: 3px !important;
+  margin: 0 2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+.component-settings-button-remove {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+
+.component-settings-button-remove:hover {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+}
+
+.component-settings-button-edit {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: white !important;
+}
+
+.component-settings-button-edit:hover {
+  background-color: #5a6268 !important;
+  border-color: #545b62 !important;
+}
+
+.component-settings-button-copy,
+.component-settings-button-paste,
+.component-settings-button-move,
+.component-settings-button-edit-json {
+  background-color: #fff !important;
+  border: 1px solid #dee2e6 !important;
+  color: #495057 !important;
+}
+
+.component-settings-button-copy:hover,
+.component-settings-button-paste:hover,
+.component-settings-button-move:hover,
+.component-settings-button-edit-json:hover {
+  background-color: #e9ecef !important;
+  border-color: #adb5bd !important;
+}
+
+/* Ensure spacing for icons */
+.component-settings-button i {
+  margin-right: 0 !important;
+  width: 14px !important;
+  text-align: center !important;
+}
+
+button[ref="editComponent"]:not(:has(i))::before,
+.btn-edit:not(:has(i))::before {
+  content: "044" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+
+button[ref="copyComponent"]:not(:has(i))::before,
+.btn-copy:not(:has(i))::before {
+  content: "0c5" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  margin-right: 4px !important;
+}
+/* ======================================== */
+/*   MODAL FIXES - Auto-open and Dimming Issues */
+/* ======================================== */
